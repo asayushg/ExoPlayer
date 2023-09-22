@@ -79,9 +79,6 @@ public final class Id3Reader implements ElementaryStreamReader {
 
   @Override
   public void packetStarted(long pesTimeUs, @TsPayloadReader.Flags int flags) {
-    if ((flags & FLAG_DATA_ALIGNMENT_INDICATOR) == 0) {
-      return;
-    }
     writingSample = true;
     if (pesTimeUs != C.TIME_UNSET) {
       sampleTimeUs = pesTimeUs;
